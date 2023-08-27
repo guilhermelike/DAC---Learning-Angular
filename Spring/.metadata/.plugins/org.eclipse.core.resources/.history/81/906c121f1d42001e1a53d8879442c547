@@ -1,0 +1,5 @@
+package br.net.razer.usuario.model;
+
+public class Usuario {
+
+}

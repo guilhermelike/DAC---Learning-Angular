@@ -1,0 +1,28 @@
+<h1>Editar Cidade</h1>
+<div class="well">
+    <form action="" #formCidade="ngForm">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" [(ngModel)]="cidade.nome" #nome="ngModel" id="nome" name="nome" minlength="2" required>
+            <div class="alert alert-danger" *ngIf="nome.errors && (nome.dirty || nome.touched)">
+                <div *ngIf="!nome.errors?.['required']">Digite o nome da cidade.</div>
+                <div *ngIf="!nome.errors?.['minlength']">O nome deve conter ao menos 2 caracteres.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input type="text" class="form-control" id="estado" [(ngModel)]="cidade.estado" #estado="ngModel" name="estado" required>
+            <div class="alert alert-danger" *ngIf="estado.errors && (estado.dirty || estado.touched)">
+                <div *ngIf="!estado.errors?.['required']">Digite o estado da cidade.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="atualizar()" [disabled]="!formCidade.form.valid">
+                <i class="fa fa-save" aria-hidden="true"></i>Atualizar
+            </button>
+            <a class="btn btn-secondary">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>Voltar
+            </a>
+        </div>
+    </form>
+</div>

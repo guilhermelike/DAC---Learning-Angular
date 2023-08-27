@@ -1,0 +1,28 @@
+<h1>Cidades</h1>
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+        <tr>
+            <th>Nome</th>
+            <th>Estado</th>
+            <th class="text-center">
+                <a href="#" [routerLink]="['/cidade/novo']" title="Novo" alt="Novo" class="btn btn-xs btn-success">
+                    <i class="fa fa-plus"> Novo</i>
+                </a>
+            </th>
+        </tr>
+
+        <tr *ngFor="let cidade of cidades">
+            <td>{{cidade.nome}}</td>
+            <td>{{cidade.estado}}</td>
+            <td class="text-center" style="width: 300px;">
+                <a href="#" [routerLink]="['/cidade/editar', cidade.id]" title="Editar" alt="Editar" class="btn btn-xs btn-info">
+                    <i class="fa fa-edit" aria-hidden="true"> Editar</i>
+                </a>
+                <a href="#" title="Remover" (click)="remover($event, cidade)" alt="Remover" class="btn btn-xs btn-danger">
+                    <i class="fa fa-times" aria-hidden="true"> Remover</i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="cidades.length == 0">Nenhuma pessoa cadastrada.</p>

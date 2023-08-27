@@ -1,0 +1,5 @@
+package br.net.razer.usuario.rest;
+
+public class UsuarioREST {
+
+}
