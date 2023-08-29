@@ -1,0 +1,28 @@
+<h1>Novo Estado</h1>
+<div class="well">
+    <form action="" #formEstado="ngForm">
+        <div class="form-group">
+            <label for="nome">Estado:</label>
+            <input type="text" class="form-control" [(ngModel)]="estado.nome" #nome="ngModel" id="nome" name="nome" required>
+            <div class="alert alert-danger" *ngIf="nome.errors && (nome.dirty || nome.touched)">
+                <div *ngIf="!nome.errors?.['required']">Digite o nome do estado.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sigla">Sigla:</label>
+            <input type="text" class="form-control" id="sigla" [(ngModel)]="estado.sigla" #sigla="ngModel" name="sigla" required>
+            <div class="alert alert-danger" *ngIf="sigla.errors && (sigla.dirty || sigla.touched)">
+                <div *ngIf="!sigla.errors?.['required']">Digite a sigla do estado.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="atualizar()" [disabled]="!formEstado.form.valid">
+                <i class="fa fa-save" aria-hidden="true"></i>Salvar
+            </button>
+            <a class="btn btn-secondary">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>Voltar
+            </a>
+        </div>
+    </form>
+</div>
+

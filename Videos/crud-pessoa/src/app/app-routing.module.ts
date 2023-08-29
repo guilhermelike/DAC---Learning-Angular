@@ -9,6 +9,9 @@ import { EditarEnderecoComponent } from './endereco/editar-endereco/editar-ender
 import { ListarCidadeComponent } from './cidade/listar-cidade/listar-cidade.component';
 import { InserirCidadeComponent } from './cidade/inserir-cidade/inserir-cidade.component';
 import { EditarCidadeComponent } from './cidade/editar-cidade/editar-cidade.component';
+import { ListarEstadoComponent } from './estado/listar-estado/listar-estado.component';
+import { InserirEstadoComponent } from './estado/inserir-estado/inserir-estado.component';
+import { EditarEstadoComponent } from './estado/editar-estado/editar-estado.component';
 
 const routes: Routes = [
  {
@@ -55,6 +58,18 @@ const routes: Routes = [
   {
     path: 'cidade/editar/:id',
     component: EditarCidadeComponent
+  },
+  {
+    path: 'estado',
+    component: ListarEstadoComponent
+  },
+  {
+    path: 'estado/novo',
+    component: InserirEstadoComponent
+  },
+  {
+    path: 'estado/editar/:id',
+    component: EditarEstadoComponent
   }
 ];
 

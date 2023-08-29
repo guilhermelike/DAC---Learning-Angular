@@ -20,7 +20,7 @@ export class ListarPessoaComponent implements OnInit {
   }
 
   listarTodos(): Pessoa[]{
-   return this.pessoaService.listarTodos();
+  return this.pessoaService.listarTodos();
   
   }
 
