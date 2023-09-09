@@ -2,7 +2,7 @@ import { PessoaService } from './../services/pessoa.service';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pessoa } from 'src/app/shared/models';
+import { Pessoa } from 'src/app/shared';
 
 @Component({
   selector: 'app-inserir-pessoa',

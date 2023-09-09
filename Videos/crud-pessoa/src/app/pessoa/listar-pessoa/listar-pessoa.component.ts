@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../services';
-import { Pessoa } from '../../shared/models/pessoa.model'
+import { Pessoa } from 'src/app/shared';
 
 @Component({
   selector: 'app-listar-pessoa',

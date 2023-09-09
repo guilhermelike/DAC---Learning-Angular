@@ -6,8 +6,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { InserirPessoaComponent } from './inserir-pessoa/inserir-pessoa.component';
 import { EditarPessoaComponent } from './editar-pessoa/editar-pessoa.component';
-import { NumericoDirective } from '../shared/directives/numerico.directive';
-
+import { SharedModule } from '../shared';
 
 
 @NgModule({
@@ -15,15 +14,15 @@ import { NumericoDirective } from '../shared/directives/numerico.directive';
     ListarPessoaComponent,
     InserirPessoaComponent,
     EditarPessoaComponent,
-    NumericoDirective
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
-    PessoaService
+    PessoaService,
   ]
 })
 export class PessoaModule { }
