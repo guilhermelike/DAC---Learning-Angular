@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EnderecoService } from '../services';
-import { Endereco } from 'src/app/shared/models';
+import { Endereco } from 'src/app/shared';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalEnderecoComponent } from '../modal-endereco';
 
 @Component({
   selector: 'app-listar-endereco',
@@ -8,13 +10,19 @@ import { Endereco } from 'src/app/shared/models';
   styleUrls: ['./listar-endereco.component.css']
 })
 export class ListarEnderecoComponent implements OnInit {
-  constructor(private enderecoService: EnderecoService){}
+
+  enderecos: Endereco[] = [];
+
+  constructor(private enderecoService : EnderecoService, private modalService: NgbModal){}
+
+  abrirModalEndereco(endereco: Endereco){
+    const modalRef = this.modalService.open(ModalEnderecoComponent);
+    modalRef.componentInstance.endereco = endereco;
+  }
 
   ngOnInit(): void {
     this.enderecos = this.listarTodos();
   }
-
-  enderecos: Endereco[] = [];
 
   listarTodos(){
     return this.enderecoService.listarTodos();

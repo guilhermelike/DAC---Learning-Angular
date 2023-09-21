@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { InserirEstadoComponent } from './inserir-estado/inserir-estado.component';
 import { EstadoService } from './services';
 import { EditarEstadoComponent } from './editar-estado/editar-estado.component';
+import { SharedModule } from '../shared';
+import { ModalEstadoComponent } from './modal-estado/modal-estado.component';
 
 
 
@@ -13,12 +15,14 @@ import { EditarEstadoComponent } from './editar-estado/editar-estado.component';
   declarations: [
     ListarEstadoComponent,
     InserirEstadoComponent,
-    EditarEstadoComponent
+    EditarEstadoComponent,
+    ModalEstadoComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers: [
     EstadoService

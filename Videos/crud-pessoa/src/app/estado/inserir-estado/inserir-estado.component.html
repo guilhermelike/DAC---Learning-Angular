@@ -10,7 +10,7 @@
         </div>
         <div class="form-group">
             <label for="sigla">Sigla:</label>
-            <input type="text" class="form-control" id="sigla" [(ngModel)]="estado.sigla" #sigla="ngModel" name="sigla" required>
+            <input type="text" class="form-control" id="sigla" [(ngModel)]="estado.sigla" #sigla="ngModel" name="sigla" minlength="2" maxlength="2" required>
             <div class="alert alert-danger" *ngIf="sigla.errors && (sigla.dirty || sigla.touched)">
                 <div *ngIf="!sigla.errors?.['required']">Digite a sigla do estado.</div>
             </div>

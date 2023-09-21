@@ -18,10 +18,14 @@
             <td>{{endereco.numero}}</td>
             <td>{{endereco.complemento}}</td>
             <td>{{endereco.bairro}}</td>
-            <td>{{endereco.cep}}</td>
+            <td>{{endereco.cep! | mask: '00000-000'}}</td>
             <td>{{endereco.cidade}}</td>
             <td>{{endereco.estado}}</td>
+            <td>{{endereco.residencial! ? "Residencial" : "Comercial"}}</td>
             <td class="text-center" style="width: 300px;">
+                <button type="button" class="btn btn-xs btn-info" (click)="abrirModalEndereco(endereco)">
+                    <i class="fa fa-eye" aria-hidden="true"> Ver</i>
+                </button>
             <a href="#" [routerLink]="['/endereco/editar', endereco.id]" title="Editar" alt="Editar" class="btn btn-xs btn-info">
                 <i class="fa fa-edit"> Editar</i>
             </a>
