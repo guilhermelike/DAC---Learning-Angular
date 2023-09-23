@@ -12,13 +12,20 @@ import { EditarCidadeComponent } from './cidade/editar-cidade/editar-cidade.comp
 import { ListarEstadoComponent } from './estado/listar-estado/listar-estado.component';
 import { InserirEstadoComponent } from './estado/inserir-estado/inserir-estado.component';
 import { EditarEstadoComponent } from './estado/editar-estado/editar-estado.component';
+import { LoginComponent } from './auth/login/login.component';
+import { LoginRoutes } from './auth/auth-routing.module';
+import { authGuard } from './auth/auth.guard';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
  {
   path: '',
-  redirectTo: 'pessoas/listar',
+  redirectTo: 'login',
   pathMatch: 'full'
  },
+
+ ...LoginRoutes,
+
   {
     path: 'pessoas',
     redirectTo: 'pessoas/listar'
@@ -29,7 +36,11 @@ const routes: Routes = [
   },
   {
     path: 'pessoas/novo',
-    component: InserirPessoaComponent
+    component: InserirPessoaComponent,
+    canActivate: [authGuard],
+    data: {
+    role:  'ADMIN, GERENTE, FUNC'
+    }
   },
   {
     path: 'pessoas/editar/:id',
@@ -41,7 +52,11 @@ const routes: Routes = [
   },
   {
     path: 'endereco/novo',
-    component: InserirEnderecoComponent
+    component: InserirEnderecoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE'
+    }
   },
   {
     path: 'endereco/editar/:id',
@@ -53,7 +68,11 @@ const routes: Routes = [
   },
   {
     path: 'cidade/novo',
-    component: InserirCidadeComponent
+    component: InserirCidadeComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'GERENTE'
+    }
   },
   {
     path: 'cidade/editar/:id',
@@ -65,11 +84,27 @@ const routes: Routes = [
   },
   {
     path: 'estado/novo',
-    component: InserirEstadoComponent
+    component: InserirEstadoComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, FUNC'
+    }
   },
   {
     path: 'estado/editar/:id',
     component: EditarEstadoComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [authGuard],
+    data: {
+      role: 'ADMIN, GERENTE, FUNC'
+    }
   }
 ];
 

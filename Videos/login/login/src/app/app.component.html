@@ -17,6 +17,7 @@
         <li *ngIf="usuarioLogado.perfil==='ADMIN' || usuarioLogado.perfil==='FUNC'" class="nav-item">
           <a href="#" class="nav-link" routerLink="/estados">Estados</a>
         </li>
+
         <li class="nav-item" ngbDropdown>
           <a href="#" class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
             Cadastros
@@ -32,6 +33,7 @@
           </div>
         </li>
       </ul>
+
       <ul *ngIf="usuarioLogado" class="navbar-nav ml-auto">
         <li class="nav-item">
           <a href="#" class="nav-link" (click)="logout()">Logout</a>
@@ -42,7 +44,9 @@
           </p>
         </li>
       </ul>
+
     </div>
   </nav>
+
   <router-outlet></router-outlet>
 </div>
